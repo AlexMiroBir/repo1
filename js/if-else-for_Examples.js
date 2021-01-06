@@ -15,7 +15,11 @@ const personalMovieDB = {
 for (let i = 0; i < numberOfFilms; i++) {
     const oneOfFilms = prompt("Один из последних фильмов?", "");
     const grade = prompt("На сколько оцените его?", "");
-    if (oneOfFilms != "" && oneOfFilms != null && grade != "" && grade != null && oneOfFilms.length < 50) {
+    if (oneOfFilms != "" &&
+        oneOfFilms != null &&
+        grade != "" &&
+        grade != null &&
+        oneOfFilms.length < 50) {
         personalMovieDB.movies[oneOfFilms] = grade;
     } else {
         i--;
