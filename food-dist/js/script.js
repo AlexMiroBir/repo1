@@ -54,3 +54,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 });
+
+
+array.forEach((element,i) => {
+    
+});
