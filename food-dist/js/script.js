@@ -84,10 +84,10 @@ window.addEventListener('DOMContentLoaded', () => {
         function updateClock() {
             const t = getTimeRemaining(endtime);
 
-            days.innerHTML = t.days >= 10 ? t.days : `0${t.days}`;
-            hours.innerHTML = t.hours >= 10 ? t.hours : `0${t.hours}`;
-            minutes.innerHTML = t.minutes >= 10 ? t.minutes : `0${t.minutes}`;
-            seconds.innerHTML = t.seconds >= 10 ? t.seconds : `0${t.seconds}`;
+            days.innerHTML = getZero(t.days);
+            hours.innerHTML = getZero(t.hours);
+            minutes.innerHTML = getZero(t.minutes);
+            seconds.innerHTML = getZero(t.seconds);
 
             if (t.total <= 0) {
                 clearInterval(timeInterval);
@@ -99,5 +99,15 @@ window.addEventListener('DOMContentLoaded', () => {
 
     setClock('.timer', deadline);
 
+
+
+    function getZero(num) {
+        if (num >= 0 && num < 10) {
+            return `0${num}`;
+        } else {
+            return num;
+
+        }
+    }
 
 });
