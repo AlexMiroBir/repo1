@@ -166,3 +166,85 @@ window.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', showModalByScroll);
 
 });
+
+
+class Cart {
+    constructor(imgSrc, subTitle, description, price) {
+        this.imgSrc = imgSrc;
+        this.subTitle = subTitle;
+        this.description = description;
+        this.price = price;
+        this.myBody = this.render();
+    }
+    render() {
+        const myBody = document.createElement('div');
+        myBody.className = 'menu__item';
+
+        const img = document.createElement('img');
+        img.src = this.imgSrc;
+        img.alt = 'cart logo';
+
+        const subTitle = document.createElement('h3');
+        subTitle.className = 'menu__item-subtitle';
+        subTitle.textContent = this.subTitle;
+
+        const description = document.createElement('div');
+        description.className = 'menu__item-descr';
+        description.textContent = this.description;
+
+        const divider = document.createElement('div');
+        divider.className = 'menu__item-divider';
+
+        const price = document.createElement('div');
+        price.className = 'menu__item-price';
+            const priceText = document.createElement('div');
+            priceText.className = 'menu__item-cost';
+            priceText.textContent = 'Цена';
+
+            const priceNumber = document.createElement('div');
+            priceNumber.className = 'menu__item-total';
+            priceNumber.innerHTML = `<span>${this.price}</span> грн/день`;
+
+            price.append(priceText);
+            price.append(priceNumber);
+
+        myBody.append(img);
+        myBody.append(subTitle);
+        myBody.append(description);
+        myBody.append(divider);
+        myBody.append(price);
+
+        return myBody;
+    }
+
+    addtoPage(parent){
+        parent.append(this.myBody);
+        
+    }
+
+
+}
+
+const cart1 = new Cart(
+    './img/tabs/vegy.jpg',
+     'Меню "Фитнес"', 
+'Меню "Фитнес" - это новый подход к приготовлению блюд: больше свежих овощей и фруктов. Продукт активных и здоровых людей. Это абсолютно новый продукт с оптимальной ценой и высоким качеством!',
+ 229);
+ 
+ cart1.addtoPage(document.querySelector(".menu .container"));
+
+const cart2 = new Cart(
+    './img/tabs/elite.jpg',
+     'Меню “Премиум”', 
+'В меню “Премиум” мы используем не только красивый дизайн упаковки, но и качественное исполнение блюд. Красная рыба, морепродукты, фрукты - ресторанное меню без похода в ресторан!',
+ 550);
+ 
+ cart2.addtoPage(document.querySelector(".menu .container"));
+
+const cart3 = new Cart(
+    './img/tabs/post.jpg',
+     'Меню "Постное"', 
+'Меню “Постное” - это тщательный подбор ингредиентов: полное отсутствие продуктов животного происхождения, молоко из миндаля, овса, кокоса или гречки, правильное количество белков за счет тофу и импортных вегетарианских стейков.',
+ 430);
+ 
+ cart3.addtoPage(document.querySelector(".menu .container"));
